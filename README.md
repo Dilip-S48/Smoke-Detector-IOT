@@ -80,11 +80,16 @@ python client/monitor_client.py
 📂 Repository Structure
 
 smoke-detector-iot/
-├── firmware/            # ESP8266 Arduino sketch
+│
+├── firmware/                        # Arduino code for ESP8266
 │   └── esp8266_mq2_smoke_detector.ino
-├── client/              # Python subscriber client
+│
+├── client/                          # Python client for monitoring
 │   └── monitor_client.py
-├── docs/                # Wiring diagram and documentation
+│
+├── docs/                            # Documentation files
 │   └── wiring_diagram.png
-├── .gitignore
-└── README.md
+│
+├── .gitignore                       # Ignore build/OS files
+├── .gitattributes                   # Force GitHub to count Arduino + Python
+├── README.md                        # Full project documentation
