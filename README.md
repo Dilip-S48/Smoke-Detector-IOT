@@ -93,3 +93,103 @@ smoke-detector-iot/
 ├── .gitignore                       # Ignore build/OS files
 ├── .gitattributes                   # Force GitHub to count Arduino + Python
 ├── README.md                        # Full project documentation
+
+
+💻 Installation
+
+1. Clone the Repository
+
+git clone https://github.com/your-username/smoke-detector-iot.git
+cd smoke-detector-iot
+
+
+---
+
+2. Arduino Firmware (ESP8266)
+
+1. Open Arduino IDE.
+
+
+2. Go to File → Open and select:
+
+
+
+firmware/esp8266_mq2_smoke_detector.ino
+
+3. Install required libraries:
+
+Adafruit MQTT Library
+
+ESP8266 Board Support (via Boards Manager)
+
+
+
+4. Edit the .ino file and set your WiFi credentials and Adafruit IO credentials:
+
+
+
+#define WIFI_SSID     "YOUR_WIFI_SSID"
+#define WIFI_PASS     "YOUR_WIFI_PASSWORD"
+#define AIO_USERNAME "YOUR_AIO_USERNAME"
+#define AIO_KEY      "YOUR_AIO_KEY"
+
+5. Select Board → NodeMCU 1.0 (ESP-12E) and the correct Port.
+
+
+6. Click Upload to flash the firmware to your ESP8266.
+
+
+
+
+---
+
+3. Python Client
+
+1. Make sure you have Python 3.x installed.
+
+
+2. Install required libraries:
+
+
+
+pip install paho-mqtt plyer matplotlib
+
+3. Edit the Python file with your Adafruit IO credentials:
+
+
+
+AIO_USERNAME = "YOUR_AIO_USERNAME"
+AIO_KEY = "YOUR_AIO_KEY"
+
+4. Run the client:
+
+
+
+python client/monitor_client.py
+
+Logs data to smoke_log.csv.
+
+Shows desktop notifications when smoke/gas threshold is exceeded.
+
+Optional live plotting of air quality readings.
+
+
+
+---
+
+4. Adafruit IO Setup
+
+1. Sign up at Adafruit IO.
+
+
+2. Create feeds:
+
+smoke_raw
+
+air_quality_pct
+
+alarm
+
+
+
+3. Copy your AIO Username and AIO Key into both the Arduino sketch and Python client.
